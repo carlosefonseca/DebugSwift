@@ -12,6 +12,7 @@ extension DebugSwift {
         public static var customInfo: (() -> [CustomData])?
         public static var customAction: (() -> [CustomAction])?
         public static var customControllers: (() -> [UIViewController])?
+        public static var customizeTabBar: ((UITabBarController) -> Void)?
 
         static var defaultControllers: [UIViewController & MainFeatureType] = [
             NetworkViewController(),

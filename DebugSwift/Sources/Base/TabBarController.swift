@@ -38,6 +38,8 @@ class TabBarController: UITabBarController {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = Theme.shared.interfaceStyleColor
         }
+
+        DebugSwift.App.customizeTabBar?(self)
     }
 
     private func configureNavigation() {

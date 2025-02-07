@@ -28,6 +28,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         // Remove comment below to remove specific features and comment DebugSwift.setup() not to double trigger.
         // DebugSwift.setup(hideFeatures: [.interface, .app, .resources, .performance])
+        DebugSwift.App.customControllers = { [ExampleViewController()] }
+        DebugSwift.App.customizeTabBar = { tabBarController in
+            guard var vcs = tabBarController.viewControllers else { return }
+            vcs.move(.app, to: 1)
+            vcs.move(ExampleViewController.self, to: 2)
+            tabBarController.viewControllers = vcs
+        }
+
         DebugSwift
             .setup()
             .show()
