@@ -15,6 +15,7 @@ extension DebugSwift {
         public var customInfo: (() -> [CustomData])?
         public var customAction: (() -> [CustomAction])?
         public var customControllers: (() -> [UIViewController])?
+        public static var customizeTabBar: ((UITabBarController) -> Void)?
 
         @MainActor private var _defaultControllers: [UIViewController & MainFeatureType]?
         

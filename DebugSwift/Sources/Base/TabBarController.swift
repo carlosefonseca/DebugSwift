@@ -35,6 +35,8 @@ class TabBarController: UITabBarController {
         tabBar.setBackgroundColor(color: UIColor.black)
         tabBar.addTopBorderWithColor(color: .gray, thickness: 0.3)
         overrideUserInterfaceStyle = .dark
+
+        DebugSwift.App.customizeTabBar?(self)
     }
 
     private func configureNavigation() {
