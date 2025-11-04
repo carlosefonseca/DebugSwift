@@ -34,19 +34,26 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         // Remove comment below to remove specific features and comment DebugSwift.setup() not to double trigger.
         // DebugSwift.setup(hideFeatures: [.interface, .app, .resources, .performance])
-        
+
         // If you have New Relic, disable leak detector to prevent conflicts:
         // debugSwift.setup(disable: [.leaksDetector])
-        
+
         print("Hey, DebugSwift is running! 🎉")
-        
+
         debugSwift
             .setup(enableBetaFeatures: [.swiftUIRenderTracking])
             .show()
 
         // To fix Alamofire `uploadProgress`
 //        DebugSwift.Network.delegate = self
-        
+
+        DebugSwift.App.customizeTabBar = { tabBarController in
+            guard var vcs = tabBarController.viewControllers else { return }
+            vcs.move(.app, to: 1)
+//            vcs.move(ExampleViewController.self, to: 2)
+            tabBarController.viewControllers = vcs
+        }
+
         // Request push notification permissions for APNS token demo
         requestPushNotificationPermissions()
 

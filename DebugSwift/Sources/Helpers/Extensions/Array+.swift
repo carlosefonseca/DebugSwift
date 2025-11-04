@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 public extension Array where Element: UIViewController {
     mutating func move(_ feature: DebugSwiftFeature, to: Int) {
         guard let index = firstIndex(where: {
