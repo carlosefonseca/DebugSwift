@@ -47,7 +47,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // To fix Alamofire `uploadProgress`
 //        DebugSwift.Network.delegate = self
 
-        DebugSwift.App.customizeTabBar = { tabBarController in
+        DebugSwift.App.shared.customizeTabBar = { tabBarController in
             guard var vcs = tabBarController.viewControllers else { return }
             vcs.move(.app, to: 1)
 //            vcs.move(ExampleViewController.self, to: 2)
