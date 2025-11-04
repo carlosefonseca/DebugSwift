@@ -36,7 +36,7 @@ final class NetworkTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .lightGray
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         return label
     }()
 
@@ -295,7 +295,8 @@ final class NetworkTableViewCell: UITableViewCell {
             contentTypeIndicator.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4),
             contentTypeIndicator.widthAnchor.constraint(equalToConstant: 45),
             contentTypeIndicator.heightAnchor.constraint(equalToConstant: 16),
-            
+            contentTypeIndicator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+
             // Size label
             sizeLabel.leadingAnchor.constraint(equalTo: contentTypeIndicator.trailingAnchor, constant: 8),
             sizeLabel.centerYAnchor.constraint(equalTo: contentTypeIndicator.centerYAnchor),
